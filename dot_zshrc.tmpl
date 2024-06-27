@@ -125,7 +125,15 @@ source $ZSH/oh-my-zsh.sh
 # folders shortcuts
 alias dh='cd $HOME/files/dh'
 
-#apps shortcuts
+{{ if eq .chezmoi.os "darwin" -}}
+
+# macos app shortcuts
 alias ff='open -a /Applications/Firefox.app'
 alias oxy='open -a /Applications/Oxygen\ XML\ Editor/Oxygen\ XML\ Editor.app'
 alias vsc='open -a /Applications/Visual\ Studio\ Code.app/'
+
+{{ else if eq .chezmoi.os "linux" -}}
+
+# linux app shortcuts
+
+{{ end -}}
