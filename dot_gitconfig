@@ -2,4 +2,4 @@
 	email = morvan.josselin@gmail.com
 	name = sardinecan
 [core]
-	excludesfile = /Users/josselinmorvan/.gitignore
+	excludesfile = .gitignore
