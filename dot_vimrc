@@ -1,0 +1,19 @@
+"default vim
+source $VIMRUNTIME/defaults.vim
+
+"Enable line number
+set number
+
+"disable line wrapping
+set nowrap
+
+"To scroll horizontally one character at a time to reveal more text as needed.
+set sidescroll=1
+
+"Enable syntax highlight
+syntax on
+filetype on
+colorscheme default
+
+"Enable autoindent
+set autoindent
