@@ -15,6 +15,7 @@ node_modules
 # folders
 temp
 tmp
+temporary
 output
 out
 html
