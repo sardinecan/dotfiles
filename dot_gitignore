@@ -1,0 +1,23 @@
+# hidden system or app files
+.DS_Store
+.vscode
+.idea
+
+# Svelte
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+
+# folders
+temp
+tmp
+output
+out
+html
+
+# files
+credentials.*
