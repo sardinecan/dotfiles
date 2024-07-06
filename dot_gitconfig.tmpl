@@ -2,4 +2,7 @@
 	email = morvan.josselin@gmail.com
 	name = sardinecan
 [core]
-	excludesfile = .gitignore
+	excludesfile = "{{ .chezmoi.homeDir }}/.gitignore"
+[init]
+    defaultbranch = main
+
