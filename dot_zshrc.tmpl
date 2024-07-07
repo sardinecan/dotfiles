@@ -95,6 +95,9 @@ TYPEWRITTEN_COLOR_MAPPINGS="primary:red"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git web-search aliases)
 
+# brew autocomplete
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
