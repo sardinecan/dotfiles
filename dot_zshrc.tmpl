@@ -22,7 +22,7 @@ export PATH=$N_PREFIX/bin:$PATH
 
 # !! Contents within this block are managed by juliaup !!
 
-path=('/Users/josselinmorvan/.juliaup/bin' $path)
+path=('{{ .chezmoi.homeDir }}/.juliaup/bin' $path)
 export PATH 
 
 # <<< juliaup initialize <<<
