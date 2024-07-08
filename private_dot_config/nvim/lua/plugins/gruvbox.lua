@@ -1,6 +1,5 @@
 return {
-  "ellisonleao/gruvbox.nvim",
-  priority = 1000, 
-  config = true
+  "morhetz/gruvbox",
+  priority = 1000,
 }
 
