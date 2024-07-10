@@ -105,7 +105,7 @@ TYPEWRITTEN_COLOR_MAPPINGS="primary:red"
 plugins=(git web-search aliases)
 
 # brew autocomplete
-if type brew &>/dev/null then
+if [type brew &>/dev/null]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
