@@ -2,5 +2,5 @@
     type = "git-repo"
     url = "https://github.com/ohmyzsh/ohmyzsh.git"
 [".oh-my-zsh/custom/themes/typewritten"]
-    type = "giet-repo"
+    type = "git-repo"
     url = "https://github.com/reobin/typewritten.git"
