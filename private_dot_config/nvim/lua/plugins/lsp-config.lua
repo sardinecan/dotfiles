@@ -18,6 +18,7 @@ return {
           "julials",
           "html",
           "cssls",
+          "emmet_ls",
         }
       })
     end
