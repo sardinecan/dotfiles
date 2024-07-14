@@ -13,6 +13,7 @@ return  {
         "julia",
         "python",
         "html",
+        "css",
         "xml"
       },
       auto_install = true,
