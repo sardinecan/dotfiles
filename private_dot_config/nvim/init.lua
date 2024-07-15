@@ -17,5 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
-vim.cmd.colorscheme "gruvbox"
+vim.g.onedark_termcolors=16
+vim.cmd.colorscheme "onedark"
 vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
