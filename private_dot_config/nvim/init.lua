@@ -19,4 +19,5 @@ require("vim-options")
 require("lazy").setup("plugins")
 vim.g.onedark_termcolors=16
 vim.cmd.colorscheme "onedark"
+--- lance automatiquement neotree au démarrage de neovim 
 vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
