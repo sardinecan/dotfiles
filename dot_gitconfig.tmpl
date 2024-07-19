@@ -3,6 +3,9 @@
 	name = sardinecan
 [core]
 	excludesfile = "{{ .chezmoi.homeDir }}/.gitignore"
+  editor = nvim
 [init]
-    defaultbranch = main
+  defaultbranch = main
+[pull]
+  ff = only
 
