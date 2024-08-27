@@ -13,7 +13,7 @@ set sidescroll=1
 "Enable syntax highlight
 syntax on
 filetype on
-colorscheme default
+colorscheme nord
 
 "Enable autoindent
 set autoindent

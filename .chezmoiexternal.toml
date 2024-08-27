@@ -4,3 +4,6 @@
 [".oh-my-zsh/custom/themes/typewritten"]
     type = "git-repo"
     url = "https://github.com/reobin/typewritten.git"
+[".vim/colors/nord.vim"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/nordtheme/vim/main/colors/nord.vim"
