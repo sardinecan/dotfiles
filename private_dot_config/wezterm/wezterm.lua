@@ -52,7 +52,7 @@ config = {
     },
     {
       mods = "LEADER",
-      key = "x",
+      key = "w",
       action = wezterm.action.CloseCurrentPane { confirm = true }
     },
     {
