@@ -17,3 +17,7 @@ colorscheme nord
 
 "Enable autoindent
 set autoindent
+
+"spell check
+set spelllang=fr, en
+set spell
