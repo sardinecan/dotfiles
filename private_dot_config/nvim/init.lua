@@ -21,13 +21,25 @@ vim.g.onedark_termcolors=16
 vim.cmd.colorscheme "onedark"
 vim.keymap.set('v', '<leader>y', '"+y', {})
 
+vim.opt_local.spell = true
 vim.opt.spelllang = 'fr_FR'
-vim.api.nvim_create_autocmd("FileType", {
+
+--[[vim.api.nvim_create_autocmd("FileType", {
   pattern = {"markdown", "tex", "txt", "html", "xml"},
   callback = function ()
     vim.opt_local.spell = true
   end
-})
+})]]--
+
+--[[vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    local bufname = vim.fn.bufname()
+    if vim.bo.filetype == "neo-tree" or bufname:match("neo%-tree") then
+      vim.opt_local.spell = false
+    end
+  end
+})]]--
 
 --- lance automatiquement neotree au démarrage de neovim 
-vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
+-- vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
