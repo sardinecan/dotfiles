@@ -19,5 +19,5 @@ colorscheme nord
 set autoindent
 
 "spell check
-set spelllang=fr, en
-set spell
+"set spelllang=fr
+"set spell
