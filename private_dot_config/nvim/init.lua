@@ -20,6 +20,8 @@ require("lazy").setup("plugins")
 vim.g.onedark_termcolors=16
 vim.cmd.colorscheme "onedark"
 vim.keymap.set('v', '<leader>y', '"+y', {})
+vim.opt.spelllang = 'fr_FR'
+vim.opt.spell = true
 
 --- lance automatiquement neotree au démarrage de neovim 
 vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
