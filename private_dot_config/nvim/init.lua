@@ -21,8 +21,8 @@ vim.g.onedark_termcolors=16
 vim.cmd.colorscheme "onedark"
 vim.keymap.set('v', '<leader>y', '"+y', {})
 
-vim.opt_local.spell = true
-vim.opt.spelllang = 'fr_FR'
+vim.opt.spell = true
+vim.opt.spelllang = {"fr", "en"}
 
 --[[vim.api.nvim_create_autocmd("FileType", {
   pattern = {"markdown", "tex", "txt", "html", "xml"},
