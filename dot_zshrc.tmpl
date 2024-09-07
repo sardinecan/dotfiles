@@ -9,7 +9,10 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 {{ else if eq .chezmoi.os "linux" -}}
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+fi
 
 {{ end -}}
 
