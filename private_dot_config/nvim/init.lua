@@ -24,6 +24,9 @@ vim.keymap.set('v', '<leader>y', '"+y', {})
 vim.opt.spell = true
 vim.opt.spelllang = {"fr", "en"}
 
+vim.o.list = true
+vim.o.listchars = 'trail:·,nbsp:⎵'
+
 --[[vim.api.nvim_create_autocmd("FileType", {
   pattern = {"markdown", "tex", "txt", "html", "xml"},
   callback = function ()
