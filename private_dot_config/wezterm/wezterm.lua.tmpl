@@ -9,13 +9,17 @@ config = {
   hide_tab_bar_if_only_one_tab = true,
   initial_cols = 132,
   initial_rows = 43,
-  
+
+{{ if eq .chezmoi.os "darwin" }}
   color_scheme = "Tokyo Night",
+{{ else }}
+  color_scheme = 'OneDark (base16)',
+{{ end }}
 
   --[[font = wezterm.font_with_fallback{
-   
+
     "JetBrains Mono",
-  
+
   },]]--
 
   font = wezterm.font_with_fallback({
