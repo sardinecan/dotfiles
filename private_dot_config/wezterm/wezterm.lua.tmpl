@@ -45,7 +45,12 @@ config = {
     "Symbols Nerd Font Mono",
   }),
 
+{{ if eq .chezmoi.hostname "arch-mbp13-12" }}
   font_size = 13,
+{{ else }}
+  font_size = 16,
+{{ end }}
+
 
   leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 },
   keys = {
