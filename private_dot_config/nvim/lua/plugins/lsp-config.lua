@@ -14,7 +14,7 @@ return {
           "lua_ls",
           "ts_ls", -- new name for tsserver
           "lemminx",
-          "svelte-language-server",
+          "svelte",
           "julials",
           "html",
           "cssls",
