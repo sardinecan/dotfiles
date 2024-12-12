@@ -46,6 +46,8 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 vim.o.list = true
 vim.o.listchars = 'trail:·,nbsp:⎵'
 
+require("nvim-wezterm")
+
 --[[vim.api.nvim_create_autocmd("FileType", {
   pattern = {"markdown", "tex", "txt", "html", "xml"},
   callback = function ()
