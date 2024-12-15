@@ -1,6 +1,7 @@
 -- réglages pour l'indentation des fichiers XML
 vim.bo.smartindent = false
 vim.bo.autoindent = false
+vim.cmd([[filetype indent off]])
 vim.cmd([[TSDisable indent]])
 
 vim.bo.tabstop = 4      -- 1 tab = 4 espaces
