@@ -18,7 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
+vim.o.smartindent = false
 vim.g.onedark_termcolors=16
+
 {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
 vim.cmd.colorscheme "tokyonight"
 {{ else }}
