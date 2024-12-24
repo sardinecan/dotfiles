@@ -6,8 +6,6 @@ vim.opt.shiftwidth = 4
 
 vim.opt.statusline:append("%y%f")
 
-vim.opt.background = "light"
-
 vim.opt.swapfile = false
 
 vim.opt.spell = true

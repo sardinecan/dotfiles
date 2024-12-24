@@ -16,18 +16,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("core.options")
+require("core.options") -- needs to be loaded before lazy because of leader keymap
+
 require("lazy").setup("plugins")
 require("core.keymaps")
-
-vim.opt.background = "light"
-vim.g.onedark_termcolors=16
-
-{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-vim.cmd.colorscheme "tokyonight"
-{{ else }}
-vim.cmd.colorscheme "onedark"
-{{ end }}
+require("core.appearance")
 
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")

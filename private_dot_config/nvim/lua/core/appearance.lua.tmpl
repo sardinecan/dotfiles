@@ -1,0 +1,9 @@
+-- core/appearence.lua
+vim.opt.background = "dark"
+vim.g.onedark_termcolors=16
+
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+vim.cmd.colorscheme "tokyonight"
+{{ else }}
+vim.cmd.colorscheme "onedark"
+{{ end }}
