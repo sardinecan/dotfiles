@@ -1,3 +1,4 @@
+-- init.lua
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -29,23 +30,6 @@ vim.cmd.colorscheme "onedark"
 
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")
-
---[[vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"markdown", "tex", "txt", "html", "xml"},
-  callback = function ()
-    vim.opt_local.spell = true
-  end
-})]]--
-
---[[vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    local bufname = vim.fn.bufname()
-    if vim.bo.filetype == "neo-tree" or bufname:match("neo%-tree") then
-      vim.opt_local.spell = false
-    end
-  end
-})]]--
 
 --- lance automatiquement neotree au démarrage de neovim 
 -- vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
