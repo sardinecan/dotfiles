@@ -18,3 +18,12 @@ vim.opt.spelllang = { "fr", "en" }
 vim.opt.smartindent = false
 
 vim.wo.number = true
+
+vim.g.onedark_termcolors=16
+
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+vim.cmd.colorscheme "tokyonight"
+{{ else }}
+vim.cmd.colorscheme "onedark"
+{{ end }}
+

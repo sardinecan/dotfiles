@@ -16,20 +16,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("core.options")
-require("core.keymaps")
 require("lazy").setup("plugins")
 
-vim.g.onedark_termcolors=16
-
-{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-vim.cmd.colorscheme "tokyonight"
-{{ else }}
-vim.cmd.colorscheme "onedark"
-{{ end }}
+require("core.options")
+require("core.keymaps")
 
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")
+require("utils.indent-xml")
 
 --- lance automatiquement neotree au démarrage de neovim 
 -- vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
