@@ -11,14 +11,15 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
-          "ts_ls", -- new name for tsserver
-          "lemminx",
-          "svelte",
-          "julials",
-          "html",
           "cssls",
           "emmet_ls",
+          "html",
+          "julials",
+          "lemminx",
+          "lua_ls",
+          "texlab",
+          "ts_ls", -- new name for tsserver
+          "svelte"
         }
       })
     end
@@ -49,7 +50,7 @@ return {
         vim.keymap.set('n', 'td', vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, opts)
 
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
