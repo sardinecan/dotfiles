@@ -6,8 +6,6 @@ vim.opt.shiftwidth = 4
 
 vim.opt.statusline:append("%y%f")
 
-vim.g.mapleader = " "
-
 vim.opt.background = "light"
 
 vim.opt.swapfile = false
@@ -19,11 +17,4 @@ vim.opt.smartindent = false
 
 vim.wo.number = true
 
-vim.g.onedark_termcolors=16
-
-{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-vim.cmd.colorscheme "tokyonight"
-{{ else }}
-vim.cmd.colorscheme "onedark"
-{{ end }}
-
+vim.g.mapleader = " "

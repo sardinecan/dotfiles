@@ -20,6 +20,14 @@ require("core.options")
 require("lazy").setup("plugins")
 require("core.keymaps")
 
+vim.g.onedark_termcolors=16
+
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+vim.cmd.colorscheme "tokyonight"
+{{ else }}
+vim.cmd.colorscheme "onedark"
+{{ end }}
+
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")
 require("utils.indent-xml")
