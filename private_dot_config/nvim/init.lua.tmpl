@@ -16,9 +16,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("core.options")
+require("core.keymaps")
 require("lazy").setup("plugins")
 
-vim.o.smartindent = false
 vim.g.onedark_termcolors=16
 
 {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
@@ -26,11 +26,6 @@ vim.cmd.colorscheme "tokyonight"
 {{ else }}
 vim.cmd.colorscheme "onedark"
 {{ end }}
-
-vim.keymap.set('v', '<leader>y', '"+y', {})
-
-vim.opt.spell = true
-vim.opt.spelllang = {"fr", "en"}
 
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")
