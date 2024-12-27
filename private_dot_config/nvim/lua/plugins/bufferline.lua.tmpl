@@ -2,11 +2,11 @@ return {
   "akinsho/bufferline.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    -- Charger les couleurs du thème Tokyonight
+    -- Charger les couleurs du thème Tokyonight ou Onedark en fonction de l'hôte
     {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
       local colors = require("tokyonight.colors").setup()
     {{ else }}
-      local colors = require("onedark.colors").setup()
+      local colors = require("onedarkpro.helpers").get_colors()
     {{ end }}
 
     -- Configuration de bufferline
@@ -42,23 +42,28 @@ return {
         truncate_names = true,
       },
       highlights = {
+        -- Fond de la ligne de remplissage
         fill = {
           fg = colors.fg_gutter,
-          bg = colors.bg_dark,
+          bg = colors.bg,
         },
+        -- Fond des éléments de buffer
         background = {
           fg = colors.fg_gutter,
           bg = colors.bg,
         },
+        -- Fond des buffers visibles
         buffer_visible = {
           fg = colors.fg_gutter,
           bg = colors.bg,
         },
+        -- Fond du buffer sélectionné
         buffer_selected = {
           fg = colors.fg,
           bg = colors.bg_highlight,
           bold = true,
         },
+        -- Séparateurs
         separator = {
           fg = colors.border,
           bg = colors.bg,
@@ -71,6 +76,7 @@ return {
           fg = colors.border,
           bg = colors.bg_highlight,
         },
+        -- Bouton de fermeture
         close_button = {
           fg = colors.fg_gutter,
           bg = colors.bg,
@@ -83,6 +89,7 @@ return {
           fg = colors.fg,
           bg = colors.bg_highlight,
         },
+        -- Buffers modifiés
         modified = {
           fg = colors.warning,
           bg = colors.bg,
@@ -95,6 +102,7 @@ return {
           fg = colors.warning,
           bg = colors.bg_highlight,
         },
+        -- Erreurs
         error = {
           fg = colors.red,
           bg = colors.bg,
@@ -119,6 +127,7 @@ return {
           fg = colors.red,
           bg = colors.bg_highlight,
         },
+        -- Avertissements
         warning = {
           fg = colors.yellow,
           bg = colors.bg,
@@ -143,9 +152,10 @@ return {
           fg = colors.yellow,
           bg = colors.bg_highlight,
         },
+        -- Informations
         info = {
           fg = colors.blue,
-          bg = colors.bg, -- Corrige les fonds des informations
+          bg = colors.bg,
         },
         info_visible = {
           fg = colors.blue,
@@ -157,7 +167,7 @@ return {
         },
         info_diagnostic = {
           fg = colors.blue,
-          bg = colors.bg, -- Corrige les fonds des diagnostics info
+          bg = colors.bg,
         },
         info_diagnostic_visible = {
           fg = colors.blue,
@@ -167,9 +177,10 @@ return {
           fg = colors.blue,
           bg = colors.bg_highlight,
         },
+        -- Indices (hints)
         hint = {
           fg = colors.green,
-          bg = colors.bg, -- Corrige les fonds des suggestions
+          bg = colors.bg,
         },
         hint_visible = {
           fg = colors.green,
@@ -181,7 +192,7 @@ return {
         },
         hint_diagnostic = {
           fg = colors.green,
-          bg = colors.bg, -- Corrige les fonds des diagnostics hint
+          bg = colors.bg,
         },
         hint_diagnostic_visible = {
           fg = colors.green,
@@ -191,6 +202,7 @@ return {
           fg = colors.green,
           bg = colors.bg_highlight,
         },
+        -- Tab de buffer
         tab = {
           fg = colors.fg_gutter,
           bg = colors.bg,
