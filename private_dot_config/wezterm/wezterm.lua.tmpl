@@ -131,6 +131,13 @@ config = {
       key = "UpArrow",
       action = wezterm.action.AdjustPaneSize { "Up", 5 }
     },
+    {
+      mods = "LEADER",
+      key = "p",
+      action = wezterm.action.PaneSelect({
+        show_pane_ids = true,
+      }),
+    }
   }
 }
 
