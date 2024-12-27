@@ -41,6 +41,7 @@ return {
         max_prefix_length = 15,
         truncate_names = true,
       },
+    {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
       highlights = {
         -- Fond de la ligne de remplissage
         fill = {
@@ -217,6 +218,9 @@ return {
           bg = colors.bg,
         },
       },
+      {{ else }}
+      --one dark theme
+      {{ end }}
     }
   end,
 }
