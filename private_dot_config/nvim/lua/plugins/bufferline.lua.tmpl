@@ -220,6 +220,184 @@ return {
       },
       {{ else }}
       --one dark theme
+highlights = {
+        -- Fond de la ligne de remplissage
+        fill = {
+          fg = colors.fg_gutter,
+          bg = colors.float_bg,
+        },
+        -- Fond des éléments de buffer
+        background = {
+          fg = colors.fg_gutter,
+          bg = colors.bg,
+        },
+        -- Fond des buffers visibles
+        buffer_visible = {
+          fg = colors.fg_gutter,
+          bg = colors.bg,
+        },
+        -- Fond du buffer sélectionné
+        buffer_selected = {
+          fg = colors.fg,
+          bg = colors.selection,
+          bold = true,
+          underline = true,
+          sp = colors.green,
+        },
+        -- Séparateurs
+        separator = {
+          fg = colors.border,
+          bg = colors.bg,
+        },
+        separator_visible = {
+          fg = colors.border,
+          bg = colors.bg,
+        },
+        separator_selected = {
+          fg = colors.border,
+          bg = colors.selection,
+        },
+        -- Bouton de fermeture
+        close_button = {
+          fg = colors.fg_gutter,
+          bg = colors.bg,
+        },
+        close_button_visible = {
+          fg = colors.fg_gutter,
+          bg = colors.bg,
+        },
+        close_button_selected = {
+          fg = colors.fg,
+          bg = colors.selection,
+        },
+        -- Buffers modifiés
+        modified = {
+          fg = colors.warning,
+          bg = colors.bg,
+        },
+        modified_visible = {
+          fg = colors.warning,
+          bg = colors.bg,
+        },
+        modified_selected = {
+          fg = colors.warning,
+          bg = colors.selection,
+        },
+        -- Erreurs
+        error = {
+          fg = colors.red,
+          bg = colors.bg,
+        },
+        error_visible = {
+          fg = colors.red,
+          bg = colors.bg,
+        },
+        error_selected = {
+          fg = colors.red,
+          bg = colors.selection,
+        },
+        error_diagnostic = {
+          fg = colors.red,
+          bg = colors.bg,
+        },
+        error_diagnostic_visible = {
+          fg = colors.red,
+          bg = colors.bg,
+        },
+        error_diagnostic_selected = {
+          fg = colors.red,
+          bg = colors.selection,
+        },
+        -- Avertissements
+        warning = {
+          fg = colors.yellow,
+          bg = colors.bg,
+        },
+        warning_visible = {
+          fg = colors.yellow,
+          bg = colors.bg,
+        },
+        warning_selected = {
+          fg = colors.yellow,
+          bg = colors.selection,
+        },
+        warning_diagnostic = {
+          fg = colors.yellow,
+          bg = colors.bg,
+        },
+        warning_diagnostic_visible = {
+          fg = colors.yellow,
+          bg = colors.bg,
+        },
+        warning_diagnostic_selected = {
+          fg = colors.yellow,
+          bg = colors.selection,
+        },
+        -- Informations
+        info = {
+          fg = colors.blue,
+          bg = colors.bg,
+        },
+        info_visible = {
+          fg = colors.blue,
+          bg = colors.bg,
+        },
+        info_selected = {
+          fg = colors.blue,
+          bg = colors.selection,
+        },
+        info_diagnostic = {
+          fg = colors.blue,
+          bg = colors.bg,
+        },
+        info_diagnostic_visible = {
+          fg = colors.blue,
+          bg = colors.bg,
+        },
+        info_diagnostic_selected = {
+          fg = colors.blue,
+          bg = colors.selection,
+        },
+        -- Indices (hints)
+        hint = {
+          fg = colors.green,
+          bg = colors.bg,
+        },
+        hint_visible = {
+          fg = colors.green,
+          bg = colors.bg,
+        },
+        hint_selected = {
+          fg = colors.green,
+          bg = colors.selection,
+        },
+        hint_diagnostic = {
+          fg = colors.green,
+          bg = colors.bg,
+        },
+        hint_diagnostic_visible = {
+          fg = colors.green,
+          bg = colors.bg,
+        },
+        hint_diagnostic_selected = {
+          fg = colors.green,
+          bg = colors.selection,
+        },
+        -- Tab de buffer
+        tab = {
+          fg = colors.fg_gutter,
+          bg = colors.bg,
+        },
+        tab_selected = {
+          fg = colors.fg,
+          bg = colors.selection,
+          bold = true,
+        },
+        tab_close = {
+          fg = colors.red,
+          bg = colors.bg,
+        },
+      },
       {{ end }}
     }
   end,
