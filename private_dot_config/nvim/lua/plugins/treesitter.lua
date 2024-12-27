@@ -17,8 +17,10 @@ return  {
         "xml"
       },
       auto_install = true,
-      highlight = { enable = true },
+      ignore_install = { "latex" },
+      highlight = { enable = true, disable = { "latex" }, },
       indent = { enable = true },
+      fold = { enable = true },
     })
   end
 }
