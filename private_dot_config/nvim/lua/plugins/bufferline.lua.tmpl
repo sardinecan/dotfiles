@@ -3,7 +3,11 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     -- Charger les couleurs du thème Tokyonight
-    local colors = require("tokyonight.colors").setup()
+    {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+      local colors = require("tokyonight.colors").setup()
+    {{ else }}
+      local colors = require("onedark.colors").setup()
+    {{ end }}
 
     -- Configuration de bufferline
     require("bufferline").setup {
@@ -23,7 +27,7 @@ return {
         separator_style = "slant",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level)
-          local icon = (level:match("error") and " ") 
+          local icon = (level:match("error") and " ")
                     or (level:match("warning") and " ")
                     or (level:match("hint") and " ")
                     or " "
