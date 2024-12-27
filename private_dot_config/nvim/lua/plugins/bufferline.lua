@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    -- Charger les couleurs de Tokyonight
+    -- Charger les couleurs du thème Tokyonight
     local colors = require("tokyonight.colors").setup()
 
     -- Configuration de bufferline
@@ -23,7 +23,10 @@ return {
         separator_style = "slant",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level)
-          local icon = (level:match("error") and " ") or " "
+          local icon = (level:match("error") and " ") 
+                    or (level:match("warning") and " ")
+                    or (level:match("hint") and " ")
+                    or " "
           return icon .. count
         end,
         show_buffer_close_icons = true,
@@ -90,7 +93,7 @@ return {
         },
         error = {
           fg = colors.red,
-          bg = colors.bg, -- Corrige le fond noir des erreurs
+          bg = colors.bg,
         },
         error_visible = {
           fg = colors.red,
@@ -102,7 +105,7 @@ return {
         },
         error_diagnostic = {
           fg = colors.red,
-          bg = colors.bg, -- Corrige le fond noir des diagnostics d'erreurs
+          bg = colors.bg,
         },
         error_diagnostic_visible = {
           fg = colors.red,
@@ -138,7 +141,7 @@ return {
         },
         info = {
           fg = colors.blue,
-          bg = colors.bg,
+          bg = colors.bg, -- Corrige les fonds des informations
         },
         info_visible = {
           fg = colors.blue,
@@ -148,20 +151,41 @@ return {
           fg = colors.blue,
           bg = colors.bg_highlight,
         },
-        pick_selected = {
-          fg = colors.red,
+        info_diagnostic = {
+          fg = colors.blue,
+          bg = colors.bg, -- Corrige les fonds des diagnostics info
+        },
+        info_diagnostic_visible = {
+          fg = colors.blue,
+          bg = colors.bg,
+        },
+        info_diagnostic_selected = {
+          fg = colors.blue,
           bg = colors.bg_highlight,
-          bold = true,
         },
-        pick_visible = {
-          fg = colors.red,
-          bg = colors.bg,
-          bold = true,
+        hint = {
+          fg = colors.green,
+          bg = colors.bg, -- Corrige les fonds des suggestions
         },
-        pick = {
-          fg = colors.red,
+        hint_visible = {
+          fg = colors.green,
           bg = colors.bg,
-          bold = true,
+        },
+        hint_selected = {
+          fg = colors.green,
+          bg = colors.bg_highlight,
+        },
+        hint_diagnostic = {
+          fg = colors.green,
+          bg = colors.bg, -- Corrige les fonds des diagnostics hint
+        },
+        hint_diagnostic_visible = {
+          fg = colors.green,
+          bg = colors.bg,
+        },
+        hint_diagnostic_selected = {
+          fg = colors.green,
+          bg = colors.bg_highlight,
         },
         tab = {
           fg = colors.fg_gutter,
@@ -174,7 +198,7 @@ return {
         },
         tab_close = {
           fg = colors.red,
-          bg = colors.bg, -- Corrige le fond noir derrière la croix
+          bg = colors.bg,
         },
       },
     }
