@@ -1,0 +1,24 @@
+font-family = Monolisa
+font-size = 14
+theme = tokyonight
+background-opacity = 0.95
+
+window-decoration = false
+window-height = 24
+window-width = 80
+macos-titlebar-style = hidden
+
+keybind = ctrl+a>n=new_window
+
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>h=new_split:down
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+a>down=resize_split:down,10
+keybind = ctrl+a>up=resize_split:up,10
+keybind = ctrl+a>left=resize_split:left,10
+keybind = ctrl+a>right=resize_split:right,10
