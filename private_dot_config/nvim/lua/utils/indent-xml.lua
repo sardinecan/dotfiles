@@ -59,3 +59,5 @@ end
 
 -- Cmd
 vim.api.nvim_create_user_command("IndentXML", indent_xml_with_xalan, {})
+
+_G.indent_xml_with_xalan = indent_xml_with_xalan
