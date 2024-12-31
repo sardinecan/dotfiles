@@ -1,22 +1,30 @@
 [user]
   email = morvan.josselin@gmail.com
-  name = sardinecan
+  name = Josselin Morvan
+  username = sardinecan
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+[url "git@gitlab.huma-num.fr:"]
+  pushInsteadOf = "https://gitlab.huma-num.fr/"
 [core]
   excludesfile = "{{ .chezmoi.homeDir }}/.gitignore"
+  # Don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
   editor = nvim
+[color]
+  # Enable colors in color-supporting terminals
+  ui = auto
 [init]
   defaultbranch = main
 [push]
-  # default = current
   autoSetupRemote = true
 [pull]
   ff = only
-[url "git@github.com:"]
-  pushInsteadOf = "https://github.com/"
+[merge]
+  ff = only
+  conflictstyle = zdiff3
 [branch]
   sort = --commiterdate
-[merge]
-  conflictstyle = zdiff3
 [diff]
   algorithm = histogram
   tool = nvimdiff
