@@ -25,6 +25,7 @@ require("core.appearance")
 require("utils.highlight-spaces")
 require("utils.nvim-wezterm")
 require("utils.indent-xml")
+require("utils.xml-templates")
 
 --- lance automatiquement neotree au démarrage de neovim 
 -- vim.api.nvim_create_autocmd("UIEnter", {command="Neotree filesystem reveal left"})
