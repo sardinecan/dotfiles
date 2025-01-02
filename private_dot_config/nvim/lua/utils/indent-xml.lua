@@ -1,16 +1,32 @@
 -- utils/indent-xml.lua
 
--- this function add return after xml declaration
+-- Cette fonction met chaque élément sur une ligne distincte : déclaration XML, instructions de traitement, et élément racine
 local function fix_declaration_and_root()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   if #lines > 0 and lines[1]:match("^<%?xml") then
-    if lines[1]:find("><") then
-      local parts = vim.split(lines[1], "><", true)
-      lines[1] = parts[1] .. ">"
-      table.insert(lines, 2, "<" .. parts[2])
-      vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
-      print("Saut de ligne ajouté entre la déclaration XML et l'élément racine.")
+    -- Découper la première ligne en différentes parties (déclaration, instructions, élément racine)
+    local segments = vim.split(lines[1], "><", true)
+    -- Liste pour les nouvelles lignes restructurées
+    local new_lines = {}
+    -- Ajouter la déclaration XML
+    table.insert(new_lines, segments[1] .. ">")
+    -- Traiter les segments suivants
+    for i = 2, #segments do
+      if i == #segments then
+        -- Dernier segment : élément racine (ne pas ajouter ">")
+        table.insert(new_lines, "<" .. segments[i])
+      else
+        -- Instructions de traitement ou autres éléments
+        table.insert(new_lines, "<" .. segments[i] .. ">")
+      end
     end
+    -- Ajouter le reste des lignes du buffer
+    for i = 2, #lines do
+      table.insert(new_lines, lines[i])
+    end
+    -- Remplacer les lignes originales dans le buffer
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, new_lines)
+    print("Chaque élément a été mis sur une ligne distincte.")
   end
 end
 
@@ -21,7 +37,7 @@ local function indent_xml_with_xalan()
   local file_path = vim.fn.expand('%:p')
   local temp_file = vim.fn.tempname()
   local xalan_jar = os.getenv("HOME") .. "/files/xalan/xalan-j_2_7_3/xalan.jar"
-  local xsl_file = os.getenv("HOME") .. "/.config/user-utils/xml/reformat.xsl"
+  local xsl_file = os.getenv("HOME") .. "/files/t.xsl"
 
   local command = string.format(
     "java -cp %s org.apache.xalan.xslt.Process -in %s -xsl %s -out %s > /dev/null 2>&1",
