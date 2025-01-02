@@ -21,7 +21,7 @@ local function indent_xml_with_xalan()
   local file_path = vim.fn.expand('%:p')
   local temp_file = vim.fn.tempname()
   local xalan_jar = os.getenv("HOME") .. "/files/xalan/xalan-j_2_7_3/xalan.jar"
-  local xsl_file = os.getenv("HOME") .. "/files/t.xsl"
+  local xsl_file = os.getenv("HOME") .. "/.config/user-utils/xml/reformat.xsl"
 
   local command = string.format(
     "java -cp %s org.apache.xalan.xslt.Process -in %s -xsl %s -out %s > /dev/null 2>&1",
