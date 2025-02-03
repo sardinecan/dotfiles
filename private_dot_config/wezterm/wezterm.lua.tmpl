@@ -1,12 +1,23 @@
 local wezterm = require("wezterm")
 
-config = wezterm.config_builder()
+local config = wezterm.config_builder()
 
-config = {
-  automatically_reload_config = true,
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+local themes = { "Tokyo Night", "Catppuccin Latte" }
+{{ else }}
+local themes = { "OneDark (base16)", "Catppuccin Latte" }
+{{ end }}
+wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 1
 
-  window_decorations = "RESIZE",
-  hide_tab_bar_if_only_one_tab = true,
+wezterm.on("toggle-theme", function(window, pane)
+  wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme % #themes + 1
+  window:set_config_overrides({ color_scheme = themes[wezterm.GLOBAL.current_theme] })
+end)
+
+config.automatically_reload_config = true
+config.window_decorations = "RESIZE"
+config.hide_tab_bar_if_only_one_tab = true
+
 {{ if eq .chezmoi.hostname "arch-mbp13-12" "IRIHS-24-8ADA" }}
   initial_cols = 80,
   initial_rows = 24,
@@ -15,42 +26,15 @@ config = {
   initial_rows = 43,
 {{ end }}
 
-  window_background_opacity = 0.95,
-
-{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-  color_scheme = "Tokyo Night",
-{{ else }}
-  color_scheme = 'OneDark (base16)',
-{{ end }}
-
-  --[[font = wezterm.font_with_fallback{
-
-    "JetBrains Mono",
-
-  },]]--
-
-  font = wezterm.font_with_fallback({
-    {
-      family = "MonoLisa",
-      weight = "Medium",
-      stretch = "Normal",
-      style = "Normal",
-    },
-    {
-      family = "BlexMono Nerd Font Mono",
-      weight = "Regular",
-      stretch = "Normal",
-      style = "Normal",
-    },
-    -- default configuration
-    -- <built-in>, BuiltIn
-    "JetBrains Mono",
-    -- <built-in>, BuiltIn
-    -- Assumed to have Emoji Presentation
-    "Noto Color Emoji",
-    -- <built-in>, BuiltIn
-    "Symbols Nerd Font Mono",
-  }),
+config.window_background_opacity = 0.95
+config.color_scheme = themes[wezterm.GLOBAL.current_theme]
+config.font = wezterm.font_with_fallback({
+  { family = "MonoLisa", weight = "Medium", stretch = "Normal", style = "Normal" },
+  { family = "BlexMono Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
+  "JetBrains Mono",
+  "Noto Color Emoji",
+  "Symbols Nerd Font Mono",
+})
 
 {{ if eq .chezmoi.hostname "arch-mbp13-12" }}
   font_size = 13,
@@ -58,82 +42,23 @@ config = {
   font_size = 16,
 {{ end }}
 
-
-  leader = { key = 'k', mods = 'CTRL', timeout_milliseconds = 2000 },
-  keys = {
-    {
-      mods = "LEADER",
-      key = "w",
-      action = wezterm.action.CloseCurrentPane { confirm = true }
-    },
-    {
-      mods = "LEADER",
-      key = "b",
-      action = wezterm.action.ActivateTabRelative(-1)
-    },
-    {
-      mods = "LEADER",
-      key = "n",
-      action = wezterm.action.ActivateTabRelative(1)
-    },
-    {
-      mods = "LEADER",
-      key = "|",
-      action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
-    },
-    {
-      mods = "LEADER",
-      key = "-",
-      action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
-    },
-    {
-      mods = "LEADER",
-      key = "h",
-      action = wezterm.action.ActivatePaneDirection "Left"
-    },
-    {
-      mods = "LEADER",
-      key = "j",
-      action = wezterm.action.ActivatePaneDirection "Down"
-    },
-    {
-      mods = "LEADER",
-      key = "k",
-      action = wezterm.action.ActivatePaneDirection "Up"
-    },
-    {
-      mods = "LEADER",
-      key = "l",
-      action = wezterm.action.ActivatePaneDirection "Right"
-    },
-    {
-      mods = "LEADER",
-      key = "LeftArrow",
-      action = wezterm.action.AdjustPaneSize { "Left", 10 }
-    },
-    {
-      mods = "LEADER",
-      key = "RightArrow",
-      action = wezterm.action.AdjustPaneSize { "Right", 10 }
-    },
-    {
-      mods = "LEADER",
-      key = "DownArrow",
-      action = wezterm.action.AdjustPaneSize { "Down", 10 }
-    },
-    {
-      mods = "LEADER",
-      key = "UpArrow",
-      action = wezterm.action.AdjustPaneSize { "Up", 10 }
-    },
-    {
-      mods = "LEADER",
-      key = "p",
-      action = wezterm.action.PaneSelect({
-        show_pane_ids = true,
-      }),
-    }
-  }
+config.leader = { key = 'k', mods = 'CTRL', timeout_milliseconds = 2000 }
+config.keys = {
+  { mods = "LEADER", key = "w", action = wezterm.action.CloseCurrentPane { confirm = true } },
+  { mods = "LEADER", key = "b", action = wezterm.action.ActivateTabRelative(-1) },
+  { mods = "LEADER", key = "n", action = wezterm.action.ActivateTabRelative(1) },
+  { mods = "LEADER", key = "|", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { mods = "LEADER", key = "-", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
+  { mods = "LEADER", key = "h", action = wezterm.action.ActivatePaneDirection "Left" },
+  { mods = "LEADER", key = "j", action = wezterm.action.ActivatePaneDirection "Down" },
+  { mods = "LEADER", key = "k", action = wezterm.action.ActivatePaneDirection "Up" },
+  { mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection "Right" },
+  { mods = "LEADER", key = "LeftArrow", action = wezterm.action.AdjustPaneSize { "Left", 10 } },
+  { mods = "LEADER", key = "RightArrow", action = wezterm.action.AdjustPaneSize { "Right", 10 } },
+  { mods = "LEADER", key = "DownArrow", action = wezterm.action.AdjustPaneSize { "Down", 10 } },
+  { mods = "LEADER", key = "UpArrow", action = wezterm.action.AdjustPaneSize { "Up", 10 } },
+  { mods = "LEADER", key = "p", action = wezterm.action.PaneSelect({ show_pane_ids = true }) },
+  { mods = "LEADER", key = "t", action = wezterm.action.EmitEvent("toggle-theme") },
 }
 
 return config
