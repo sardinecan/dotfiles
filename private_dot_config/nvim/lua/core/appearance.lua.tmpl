@@ -8,13 +8,15 @@ vim.cmd.colorscheme "tokyonight"
 vim.cmd.colorscheme "onedark"
 {{ end }}
 
-local themes = { "tokyonight", "onedark" }
+local themes = { "tokyonight", "onedark", "catppuccin"}
 local current_theme = 1
 
 function SwitchTheme()
   current_theme = (current_theme % #themes) + 1
   vim.cmd("colorscheme " .. themes[current_theme])
-  print("Switched to theme: " .. themes[current_theme])
+  vim.defer_fn(function()
+    print("Switched to theme: " .. themes[current_theme])
+  end, 100) -- 100ms de délai
 end
 
 vim.api.nvim_set_keymap("n", "<leader>t", ":lua SwitchTheme()<CR>", { noremap = true, silent = true })
