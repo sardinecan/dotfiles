@@ -92,6 +92,19 @@ return {
           end
        end
       })
+
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            diagnostics = {
+              -- Force le LSP à reconnaître la variable globale `vim`
+              globals = { "vim" },
+            },
+          },
+        },
+      })
    end,
   },
 }
