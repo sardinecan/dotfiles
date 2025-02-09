@@ -7,7 +7,7 @@ return {
       flavour = "auto", -- latte, frappe, macchiato, mocha
       background = {
         light = "latte",
-        dark = "mocha",
+        dark = "macchiato",
       },
       transparent_background = false,
       styles = {

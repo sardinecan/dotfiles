@@ -3,9 +3,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-local themes = { "Tokyo Night", "OneDark (base16)", "Catppuccin Mocha", "Catppuccin Latte" }
+local themes = { "Tokyo Night", "OneDark (base16)", "Catppuccin Macchiato", "Catppuccin Latte" }
 {{ else }}
-local themes = { "OneDark (base16)", "Tokyo Night", "Catppuccin Mocha", "Catppuccin Latte" }
+local themes = { "OneDark (base16)", "Tokyo Night", "Catppuccin Macchiato", "Catppuccin Latte" }
 {{ end }}
 wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 1
 
