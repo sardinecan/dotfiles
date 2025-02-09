@@ -8,10 +8,6 @@ return {
     indent = {
       char = "▏"
     },
-    --[[whitespace = {
-      highlight = { "Whitespace", "NonText" },
-      remove_blankline_trail = false,
-    },]]--
     exclude = {
       filetypes = {
         "dashboard",
