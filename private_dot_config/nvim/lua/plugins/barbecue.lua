@@ -6,16 +6,16 @@ return {
     "SmiteshP/nvim-navic", -- Pour extraire les informations de breadcrumbs
   },
   opts = {
-    theme = "auto", -- Utilise le thème par défaut de l'éditeur
-    show_modified = true, -- Affiche un indicateur si le fichier est modifié
-    attach_navic = true, -- Active l'intégration automatique avec nvim-navic
-    show_dirname = true, -- Affiche le nom du dossier courant dans les breadcrumbs
-    show_basename = true, -- Affiche le nom du fichier courant
+    theme = "auto",
+    show_modified = true,
+    attach_navic = true,
+    show_dirname = true,
+    show_basename = true,
     symbols = {
-      modified = "●", -- Indicateur de fichier modifié
-      separator = ">", -- Séparateur entre les niveaux de breadcrumbs
+      modified = "●",
+      separator = ">",
     },
-    exclude_filetypes = { "netrw", "gitcommit", "terminal", "git", "markdown", "toggleterm" }, -- Désactiver pour certains types de fichiers
+    exclude_filetypes = { "netrw", "gitcommit", "terminal", "git", "markdown", "toggleterm" },
   },
 }
 
