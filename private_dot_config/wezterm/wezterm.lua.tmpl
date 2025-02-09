@@ -2,12 +2,13 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
-local themes = { "Tokyo Night", "OneDark (base16)", "Catppuccin Macchiato", "Catppuccin Latte" }
-{{ else }}
 local themes = { "OneDark (base16)", "Tokyo Night", "Catppuccin Macchiato", "Catppuccin Latte" }
-{{ end }}
+
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 2
+{{ else }}
 wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 1
+{{ end }}
 
 wezterm.on("toggle-theme", function(window, pane)
   wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme % #themes + 1

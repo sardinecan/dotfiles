@@ -4,12 +4,13 @@ vim.g.onedark_termcolors=16
 
 {{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
 vim.cmd.colorscheme "tokyonight"
+local current_theme = 2
 {{ else }}
 vim.cmd.colorscheme "onedark"
+local current_theme = 1
 {{ end }}
 
-local themes = { "tokyonight", "onedark", "catppuccin"}
-local current_theme = 1
+local themes = { "onedark", "tokyonight", "catppuccin"}
 
 function SwitchTheme()
   current_theme = (current_theme % #themes) + 1
