@@ -14,7 +14,7 @@ return {
     local notify = require("notify")
     notify.setup({
       background_colour = "#000000",
-      timeout = 2000, -- ⏳ Notifications disparaissent après 2s
+      timeout = 2000,
     })
     vim.notify = notify
 
@@ -39,7 +39,7 @@ return {
       presets = {
         bottom_search = true,
         command_palette = true,
-        long_message_to_split = false, -- Empêche les longs messages de rester trop longtemps
+        long_message_to_split = false,
         inc_rename = false,
         lsp_doc_border = false,
       },
