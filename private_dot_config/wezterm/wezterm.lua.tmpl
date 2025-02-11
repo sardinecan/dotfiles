@@ -12,7 +12,10 @@ wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 1
 
 wezterm.on("toggle-theme", function(window, pane)
   wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme % #themes + 1
-  window:set_config_overrides({ color_scheme = themes[wezterm.GLOBAL.current_theme] })
+  local new_theme = themes[wezterm.GLOBAL.current_theme]
+
+  window:set_config_overrides({ color_scheme = new_theme })
+  window:toast_notification('wezterm', 'Theme changed to: ' .. new_theme, nil, 2000)
 end)
 
 config.automatically_reload_config = true
