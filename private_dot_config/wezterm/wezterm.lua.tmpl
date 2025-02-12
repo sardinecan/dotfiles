@@ -13,9 +13,10 @@ wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme or 1
 wezterm.on("toggle-theme", function(window, pane)
   wezterm.GLOBAL.current_theme = wezterm.GLOBAL.current_theme % #themes + 1
   local new_theme = themes[wezterm.GLOBAL.current_theme]
-
+  
   window:set_config_overrides({ color_scheme = new_theme })
   window:toast_notification('wezterm', 'Theme changed to: ' .. new_theme, nil, 2000)
+  wezterm.log_info('Theme changed to: ' .. new_theme)
 end)
 
 config.automatically_reload_config = true
@@ -63,6 +64,7 @@ config.keys = {
   { mods = "LEADER", key = "UpArrow", action = wezterm.action.AdjustPaneSize { "Up", 10 } },
   { mods = "LEADER", key = "p", action = wezterm.action.PaneSelect({ show_pane_ids = true }) },
   { mods = "LEADER", key = "t", action = wezterm.action.EmitEvent("toggle-theme") },
+  { mods = 'LEADER', key = "L", action = wezterm.action.ShowDebugOverlay },
 }
 
 return config
