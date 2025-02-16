@@ -9,14 +9,26 @@ return {
 
   config = function()
     local noice = require("noice")
-
-    -- Configuration de nvim-notify avec durée réduite
     local notify = require("notify")
+    local lualine = require("lualine")
+
     notify.setup({
       background_colour = "#000000",
       timeout = 2000,
     })
     vim.notify = notify
+
+    lualine.setup({
+      sections = {
+        lualine_x = {
+          {
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+            color = { fg = "#ff9e64" },
+          }
+        },
+      },
+    })
 
     noice.setup({
       lsp = {
@@ -52,4 +64,3 @@ return {
     })
   end,
 }
-
