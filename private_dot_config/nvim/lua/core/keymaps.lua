@@ -19,6 +19,8 @@ vim.api.nvim_set_keymap('n', '<leader>f', ':IndentXML<CR>', { noremap = true, si
 -- interaction nvim / wezterm
 vim.api.nvim_set_keymap("n", "<leader>r", ":lua SendLineToWezTerm()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>r", ":lua SendSelectionToWezTerm()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", ":BufferClose<CR>", { desc = "Fermer le buffer actuel" })
+
 
 -- keymaps for neotree are defined in plugins.neotree
 -- keympas for telescope are defined in plugins.telescope
