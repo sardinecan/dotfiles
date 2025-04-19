@@ -170,3 +170,10 @@ alias vimdiff='nvim -d '
 # linux app shortcuts
 
 {{ end -}}
+
+{{ if eq .chezmoi.hostname "IRIHS-24-8ADA" }}
+export OMAKUB_PATH="$HOME/.local/share/omakub"
+{{ else }}
+{{ end }}
+
+
