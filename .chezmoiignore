@@ -2,4 +2,11 @@ README.md
 {{ if ne .chezmoi.os "linux" }}
   .config/touchegg
   .config/ghostty
+  .config/user-utils/services/basex.service
+  .config/user-utils/services/basex9.service
+{{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+  # à copier dans Library/LaunchAgents/
+  .config/user-utils/services/com.josselinmorvan.basex.plist
+  .config/user-utils/services/com.josselinmorvan.basex9.plist
 {{ end }}
