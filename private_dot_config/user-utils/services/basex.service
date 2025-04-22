@@ -1,0 +1,13 @@
+[Unit]
+Description=BaseX
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jmorvan/files/basex/
+ExecStart=/home/jmorvan/files/basex/bin/basexhttp
+Restart=on-failure
+User=jmorvan
+Group=jmorvan
+
+[Install]
+WantedBy=multi-user.target
