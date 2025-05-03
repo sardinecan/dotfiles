@@ -4,6 +4,7 @@ README.md
   .config/ghostty
   .config/user-utils/services/basex.service
   .config/user-utils/services/basex9.service
+  .config/user-utils/gnome/extensions.txt
 {{ end }}
 {{ if ne .chezmoi.os "darwin" }}
   # à copier dans Library/LaunchAgents/
