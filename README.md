@@ -1,4 +1,8 @@
-# Dotefiles
+# dotefiles
+Just my dotfiles for MacOs and Linux.
+
+
+
 
 ## Gnome extensions
 To load the gnome extensions, run the following command:
