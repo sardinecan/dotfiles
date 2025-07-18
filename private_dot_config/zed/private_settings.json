@@ -1,0 +1,63 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "auto_indent_on_paste": true,
+    "auto_install_extensions": {
+        "catppuccin": true,
+        "html": true,
+        "julia": true,
+        "one-dark-pro": true,
+        "svelte": true,
+        "toml": true,
+        "xml": true
+    },
+    "base_keymap": "VSCode",
+    "buffer_font_size": 20,
+    "buffer_font_family": "CommitMono",
+    "file_types": {
+        "XML": ["xsl", "svg", "rdf", "gexf", "gpx"]
+    },
+    "format_on_save": "off",
+    "formatter": "prettier",
+    "hard_tabs": false,
+    "indent_guides": {
+        "enabled": true,
+        "line_width": 1,
+        "active_line_width": 1,
+        "coloring": "fixed",
+        "background_coloring": "disabled"
+    },
+    "jupyter": {
+        "enabled": true
+    },
+    "languages": {
+        "Julia": {
+            "tab_size": 2
+        },
+        "CSS": {
+            "tab_size": 2
+        },
+        "Lua": {
+            "tab_size": 2
+        }
+    },
+    "project_panel": {
+        "dock": "right"
+    },
+    "tab_size": 4,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Tokyo Night Storm"
+    },
+    "ui_font_size": 20,
+    "use_autoclose": true,
+    "use_auto_surround": true,
+    "vim_mode": true
+}
