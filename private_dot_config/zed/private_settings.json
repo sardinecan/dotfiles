@@ -12,9 +12,11 @@
         "catppuccin": true,
         "html": true,
         "julia": true,
+        "lua": true,
         "one-dark-pro": true,
         "svelte": true,
         "toml": true,
+        "tokyo-night-themes": true,
         "xml": true
     },
     "base_keymap": "VSCode",
