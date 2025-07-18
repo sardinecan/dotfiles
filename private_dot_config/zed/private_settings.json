@@ -16,7 +16,7 @@
         "one-dark-pro": true,
         "svelte": true,
         "toml": true,
-        "tokyo-night-themes": true,
+        "tokyo-night": true,
         "xml": true
     },
     "base_keymap": "VSCode",
