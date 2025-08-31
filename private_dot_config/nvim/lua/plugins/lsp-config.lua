@@ -72,14 +72,33 @@ return {
 
 
       -- default handler for installed servers
-      mason_lspconfig.setup_handlers({
+      --[[mason_lspconfig.setup_handlers({
         function (serverName)
           lspconfig[serverName].setup({
             capabilities=capabilities,
             on_attach=on_attach
           })
         end
-      })
+      })]]--
+
+      local servers = {
+        "cssls",
+        "emmet_ls",
+        "html",
+        "lemminx",
+        "texlab",
+        "ts_ls",
+        "svelte"
+      }
+
+      for _, server in ipairs(servers) do
+        vim.lsp.config(server, {
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
+        vim.lsp.enable(server)
+      end
+
 
       lspconfig.julials.setup({
         capabilities=capabilities,
@@ -93,6 +112,8 @@ return {
        end
       })
 
+      vim.lsp.enable("julials")
+
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -105,6 +126,8 @@ return {
           },
         },
       })
+    vim.lsp.enable("lua_ls")
+
    end,
   },
 }
