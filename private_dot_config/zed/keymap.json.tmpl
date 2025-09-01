@@ -7,37 +7,44 @@
 // from the command palette.
 [
     {
+        "bindings": {
+            "cmd-k t": "workspace::NewTerminal"
+        }
+    },
+    {
         "context": "Workspace",
         "bindings": {
-            // "shift shift": "file_finder::Toggle"
+            "cmd-T": "terminal_panel::ToggleFocus"
         }
     },
     {
         "context": "Editor",
         "bindings": {
-            // "j k": ["workspace::SendKeystrokes", "escape"
-            "ctrl-k ctrl-o": "workspace::Open"
+            "cmd-k u": "editor::ConvertToUpperCase",
+            "cmd-k l": "editor::ConvertToLowerCase",
+            "cmd-k c": "editor::ConvertToLowerCamelCase",
+            "cmd-k s": "editor::ConvertToSnakeCase"
         }
     },
     {
         "context": "Editor && mode == full",
         "bindings": {
-            "ctrl-enter": [
+            "shift-enter": [
                 "workspace::SendKeystrokes",
-                "ctrl-c ctrl-` ctrl-shift-v enter ctrl-` end down"
+                "cmd-c cmd-T cmd-v enter cmd-T end down"
             ]
         }
     },
     {
         "context": "Editor && selection == none",
         "bindings": {
-            "ctrl-k =": "editor::Format"
+            "cmd-k =": "editor::Format"
         }
     },
     {
         "context": "Editor && selection != none",
         "bindings": {
-            "ctrl-k =": "editor::FormatSelections"
+            "cmd-k =": "editor::FormatSelections"
         }
     }
 ]
