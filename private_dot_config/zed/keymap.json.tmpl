@@ -50,4 +50,47 @@
     }
 ]
 {{ else }}
+[
+    {
+        "bindings": {
+            "ctrl-k t": "workspace::NewTerminal"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-T" : "terminal_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-k u": "editor::ConvertToUpperCase",
+            "ctrl-k l": "editor::ConvertToLowerCase",
+            "ctrl-k c": "editor::ConvertToLowerCamelCase",
+            "ctrl-k s": "editor::ConvertToSnakeCase"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "shift-enter": [
+                "workspace::SendKeystrokes",
+                "ctrl-c ctrl-` ctrl-shift-v enter ctrl-` end down"
+            ]
+        }
+    },
+    {
+        "context": "Editor && selection == none",
+        "bindings": {
+            "ctrl-k =": "editor::Format"
+        }
+    },
+    {
+        "context": "Editor && selection != none",
+        "bindings": {
+            "ctrl-k =": "editor::FormatSelections"
+        }
+    }
+]
 {{ end }}
