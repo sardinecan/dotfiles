@@ -5,6 +5,7 @@
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
+{{ if eq .chezmoi.os "darwin" }}
 [
     {
         "bindings": {
@@ -48,3 +49,5 @@
         }
     }
 ]
+{{ else }}
+{{ end }}
