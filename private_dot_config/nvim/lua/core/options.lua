@@ -1,9 +1,16 @@
 -- core/options.lua
 vim.opt.expandtab = true
+--vim.cmd("set expandtab")
 vim.opt.tabstop = 4
+--vim.cmd("set tabstop=4")
 vim.opt.softtabstop = 4
+--vim.cmd("set softtabstop=4")
 vim.opt.shiftwidth = 4
+--vim.cmd("set shiftwidth=4")
+vim.g.background = "light"
+vim.opt.swapfile = false
 
+vim.cmd("set statusline+=%y")
 --vim.opt.statusline:append("%y%f")
 
 vim.opt.swapfile = false
