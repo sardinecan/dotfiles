@@ -97,15 +97,15 @@ return {
           on_attach = on_attach,
         })
         vim.lsp.enable(server)
-          end
+      end
 
-          -- Configuration spécifique pour julials avec vim.lsp.config
-          vim.lsp.config("julials", {
+      -- Configuration spécifique pour julials avec vim.lsp.config
+      vim.lsp.config("julials", {
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = (function()
           local julia_env = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-          
+
           -- Fonction pour vérifier si LanguageServer est installé
           local function check_languageserver(julia_cmd)
             local handle = io.popen(julia_cmd .. ' --startup-file=no --history-file=no -e "using LanguageServer; println(\\"OK\\")" 2>/dev/null')
@@ -116,7 +116,7 @@ return {
             end
             return false
           end
-          
+
           -- Fonction pour installer LanguageServer
           local function install_languageserver(julia_cmd)
             vim.notify("Installation de LanguageServer.jl...")
@@ -128,8 +128,8 @@ return {
               vim.notify("Installation terminée: " .. result)
             end
           end
-          
-          -- Essayer d'abord l'environnement spécifique
+
+          --[[ Essayer d'abord l'environnement spécifique
           if vim.fn.filereadable(julia_env) == 1 then
             if check_languageserver(julia_env) then
               vim.notify("Using Julia LSP from environment: " .. julia_env)
@@ -141,8 +141,8 @@ return {
                 return { julia_env, "--startup-file=no", "--history-file=no", "-e", "using LanguageServer; runserver()" }
               end
             end
-          end
-          
+          end]]--
+
           -- Fallback sur l'installation globale de Julia
           local julia_global = "julia"
           if check_languageserver(julia_global) then
@@ -154,11 +154,11 @@ return {
             return { julia_global, "--startup-file=no", "--history-file=no", "-e", "using LanguageServer; runserver()" }
           end
         end)(),
-          })
-          vim.lsp.enable("julials")
+      })
+      vim.lsp.enable("julials")
 
-          -- Configuration spécifique pour lua_ls
-          vim.lsp.config("lua_ls", {
+      -- Configuration spécifique pour lua_ls
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -170,8 +170,8 @@ return {
           },
         },
       })
-    vim.lsp.enable("lua_ls")
+      vim.lsp.enable("lua_ls")
 
-   end,
+    end,
   },
 }
