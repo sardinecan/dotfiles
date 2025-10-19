@@ -1,10 +1,23 @@
 println("Salutations !")
+
+# ------------------------------
+# Activating OhMyREPL
+# ------------------------------
+atreplinit() do repl
+  try
+    @eval using OhMyREPL
+    #include("catppuccin.jl")
+    #OhMyREPL.colorscheme!("CatppuccinMacchiato") # or 'CatppuccinFrappe', 'CatppuccinMacchiato', 'CatppuccinMocha'
+  catch e
+    @warn "error while importing OhMyREPL" e
+  end
+end
 # ------------------------------
 # Activating env automatically
 # ------------------------------
 using Pkg
 if isfile("Project.toml") && isfile("Manifest.toml")
-    Pkg.activate(".")
+  Pkg.activate(".")
 end
 
 # ------------------------------
