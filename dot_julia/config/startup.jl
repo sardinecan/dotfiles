@@ -6,7 +6,7 @@ println("Salutations !")
 using OhMyREPL
 
 include("catppuccin.jl")
-colorscheme!("CatppuccinMacchiato")
+colorscheme!("Tokyonight")
 # ------------------------------
 # Activating env automatically
 # ------------------------------
