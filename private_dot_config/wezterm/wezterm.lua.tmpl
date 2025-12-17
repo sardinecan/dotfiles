@@ -37,6 +37,23 @@ config.font = wezterm.font_with_fallback({
   "Symbols Nerd Font Mono",
 })
 
+
+{{ if eq .chezmoi.os "linux" }}
+-- Change mouse scroll amount
+config.mouse_bindings = {
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(-1),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(1),
+  },
+}
+{{ end }}
+
 {{ if eq .chezmoi.hostname "arch-mbp13-12" }}
 config.font_size = 13
 {{ else }}
