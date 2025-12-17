@@ -42,4 +42,8 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = { "screenline", "number" }
+
+
 -- vim.opt.mousemoveevent = true -- pour afficher les croix au survol dans le bufferline
