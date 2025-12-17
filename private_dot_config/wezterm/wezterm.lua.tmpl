@@ -39,6 +39,8 @@ config.font = wezterm.font_with_fallback({
 
 
 {{ if eq .chezmoi.os "linux" }}
+local act = wezterm.action
+
 -- Change mouse scroll amount
 config.mouse_bindings = {
   {
