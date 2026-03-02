@@ -176,4 +176,7 @@ export OMAKUB_PATH="$HOME/.local/share/omakub"
 {{ else }}
 {{ end }}
 
-
+# Function
+make-tei() {
+    (cd $HOME/files/dh/Stylesheets && make install)
+}
