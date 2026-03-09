@@ -24,11 +24,14 @@ tmp
 temporary
 output
 out
+
 #html
 download
 
 # files
 credentials.*
+.hash
+*.bk
 
 # Julia's documentation
 docs/build/
