@@ -1,11 +1,11 @@
 "default vim
 source $VIMRUNTIME/defaults.vim
 
-"Enable line number
 set number
-
-"disable line wrapping
 set nowrap
+
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
 
 "To scroll horizontally one character at a time to reveal more text as needed.
 set sidescroll=1
@@ -13,11 +13,56 @@ set sidescroll=1
 "Enable syntax highlight
 syntax on
 filetype on
-colorscheme nord
-
-"Enable autoindent
-set autoindent
+set termguicolors
+"colorscheme nord
+"let g:dracula_colorterm = 0
+colorscheme dracula
 
 "spell check
 "set spelllang=fr
 "set spell
+
+"Enable autoindent
+set autoindent
+set shiftwidth=4
+set tabstop=4
+set expandtab
+
+" Do not save backup files.
+set nobackup
+
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+set ignorecase
+" Override the ignorecase option if searching for capital letters.
+" This will allow you to search specifically for capital letters.
+set smartcase
+
+" Show partial command you type in the last line of the screen.
+set showcmd
+set showmode
+set showmatch
+set hlsearch
+
+" trailing whitespace
+set list
+set listchars=trail:·
+
+" Set the commands to save in history default number is 20.
+set history=1000
+
+" change cursor
+if &term =~ "xterm\\|rxvt"
+  let &t_SI = "\e[6 q"   " Insert mode : pipe
+  let &t_EI = "\e[2 q"   " Normal mode : block
+endif
+
+
+let mapleader = " "
+" save as sudo
+cmap w!! w !sudo tee > /dev/null %
+nnoremap <leader>= gg=G
+" copy line in normal mode
+nnoremap <leader>y "+y
+" copy selection in visual mode
+vnoremap <leader>y "+y
