@@ -154,11 +154,11 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # folders shortcuts
-alias dh='cd $HOME/files/dh'
-alias ceen='cd $HOME/files/dh/ceen'
-alias cred='julia ~/files/dh/Tomtom.jl/tomtom.jl ~/files/credentials.toml'
+alias dh='cd $HOME/project'
+alias ceen='cd $HOME/projects/ceen'
+alias cred='julia ~/projects/Tomtom.jl/tomtom.jl ~/projects/credentials.toml'
 alias saxon='java -jar ~/programs/saxon/saxon-he-12.5.jar'
-alias sesame='julia --project=~/files/dh/sesame.jl ~/files/dh/sesame.jl/src/vpn.jl'
+alias sesame='julia --project=~/projects/sesame.jl ~/projects/sesame.jl/src/vpn.jl'
 {{ if eq .chezmoi.os "darwin" -}}
 
 # macos app shortcuts
@@ -179,5 +179,5 @@ export OMAKUB_PATH="$HOME/.local/share/omakub"
 
 # Function
 make-tei() {
-    (cd $HOME/files/dh/Stylesheets && make install)
+    (cd $HOME/programs/Stylesheets && make install)
 }
