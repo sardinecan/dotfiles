@@ -3,8 +3,8 @@ Description=BaseX
 
 [Service]
 Type=simple
-WorkingDirectory=/home/jmorvan/files/basex/
-ExecStart=/home/jmorvan/files/basex/bin/basexhttp
+WorkingDirectory=/home/jmorvan/programs/basex/
+ExecStart=/home/jmorvan/programs/basex/bin/basexhttp
 Restart=on-failure
 User=jmorvan
 Group=jmorvan

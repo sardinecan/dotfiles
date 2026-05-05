@@ -8,11 +8,11 @@
 
   <key>ProgramArguments</key>
   <array>
-<string>/Users/josselinmorvan/files/basex/bin/basexhttp</string>
+<string>/Users/josselinmorvan/programs/basex/bin/basexhttp</string>
   </array>
 
   <key>WorkingDirectory</key>
-  <string>/Users/josselinmorvan/files/basex/</string>
+  <string>/Users/josselinmorvan/programs/basex/</string>
 
   <key>RunAtLoad</key>
   <true/>

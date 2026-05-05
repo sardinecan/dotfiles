@@ -17,14 +17,14 @@ fi
 {{ end -}}
 
 # BaseX
-export PATH=$PATH:$HOME/files/basex/bin 
+export PATH=$PATH:$HOME/programs/basex/bin 
 # BaseX9
-alias basex9="$HOME/files/basex9/bin/basex"
-alias basex9http="$HOME/files/basex9/bin/basexhttp"
-alias basex9gui="$HOME/files/basex9/bin/basexgui"
+alias basex9="$HOME/programs/basex9/bin/basex"
+alias basex9http="$HOME/programs/basex9/bin/basexhttp"
+alias basex9gui="$HOME/programs/basex9/bin/basexgui"
 
 # Apache Ant
-export PATH=$PATH:$HOME/files/apache-ant/bin
+export PATH=$PATH:$HOME/programs/apache-ant/bin
 
 # teic Stylesheets
 export PATH=$PATH:/tmp/tei/bin/
@@ -157,7 +157,7 @@ fi
 alias dh='cd $HOME/files/dh'
 alias ceen='cd $HOME/files/dh/ceen'
 alias cred='julia ~/files/dh/Tomtom.jl/tomtom.jl ~/files/credentials.toml'
-alias saxon='java -jar ~/files/saxon/saxon-he-12.5.jar'
+alias saxon='java -jar ~/programs/saxon/saxon-he-12.5.jar'
 {{ if eq .chezmoi.os "darwin" -}}
 
 # macos app shortcuts
