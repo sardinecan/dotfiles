@@ -4,15 +4,15 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.josselinmorvan.basex</string>
+  <string>com.jmorvan.basex</string>
 
   <key>ProgramArguments</key>
   <array>
-<string>/Users/josselinmorvan/programs/basex/bin/basexhttp</string>
+<string>/Users/jmorvan/programs/basex/bin/basexhttp</string>
   </array>
 
   <key>WorkingDirectory</key>
-  <string>/Users/josselinmorvan/programs/basex/</string>
+  <string>/Users/jmorvan/programs/basex/</string>
 
   <key>RunAtLoad</key>
   <true/>

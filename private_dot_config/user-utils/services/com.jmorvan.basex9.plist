@@ -2,13 +2,13 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.josselinmorvan.basex9</string>
+        <string>com.jmorvan.basex9</string>
         <key>ProgramArguments</key>
         <array>
-            <string>/Users/josselinmorvan/programs/basex9/bin/basexhttp</string>
+            <string>/Users/jmorvan/programs/basex9/bin/basexhttp</string>
         </array>
         <key>WorkingDirectory</key>
-        <string>/Users/josselinmorvan/programs/basex9/</string>
+        <string>/Users/morvan/programs/basex9/</string>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>

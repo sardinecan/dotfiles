@@ -2,7 +2,6 @@
 vim.bo.smartindent = true
 vim.bo.autoindent = false
 vim.cmd([[filetype indent off]])
-vim.cmd([[TSDisable indent]])
 
 vim.bo.tabstop = 4      -- 1 tab = 4 espaces
 vim.bo.shiftwidth = 4   -- 4 espaces pour l'indentation automatique
