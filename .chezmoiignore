@@ -8,6 +8,6 @@ README.md
 {{ end }}
 {{ if ne .chezmoi.os "darwin" }}
   # à copier dans Library/LaunchAgents/
-  .config/user-utils/services/com.josselinmorvan.basex.plist
-  .config/user-utils/services/com.josselinmorvan.basex9.plist
+  .config/user-utils/services/com.jmorvan.basex.plist
+  .config/user-utils/services/com.jmorvan.basex9.plist
 {{ end }}
