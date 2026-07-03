@@ -1,6 +1,5 @@
 README.md
 {{ if ne .chezmoi.os "linux" }}
-  .config/touchegg
   .config/ghostty
   .config/user-utils/services/basex.service
   .config/user-utils/services/basex9.service
