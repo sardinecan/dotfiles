@@ -1,10 +1,8 @@
 println("Salutations !")
 
 # ------------------------------
-# Activating OhMyREPL
+# Activating syntax highlighting theme
 # ------------------------------
-using OhMyREPL
-
 include("catppuccin.jl")
 colorscheme!("Tokyonight")
 # ------------------------------
