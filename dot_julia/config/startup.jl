@@ -3,7 +3,7 @@ println("Salutations !")
 # ------------------------------
 # Activating syntax highlighting theme
 # ------------------------------
-include("catppuccin.jl")
+include("themes.jl")
 colorscheme!("Tokyonight")
 # ------------------------------
 # Activating env automatically
