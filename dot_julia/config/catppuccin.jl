@@ -1,97 +1,90 @@
-using Crayons
-import OhMyREPL: Passes.SyntaxHighlighter
+using StyledStrings: Face, loadface!
 
-function _create_tokyonight_colorscheme()
-  scheme = SyntaxHighlighter.ColorScheme()
-  SyntaxHighlighter.symbol!(scheme, crayon"bb9af7")  # Purple
-  SyntaxHighlighter.comment!(scheme, crayon"565f89")  # Comment
-  SyntaxHighlighter.number!(scheme, crayon"ff9e64")  # Orange
-  SyntaxHighlighter.string!(scheme, crayon"9ece6a")  # Green
-  SyntaxHighlighter.call!(scheme, crayon"7aa2f7")  # Blue
-  SyntaxHighlighter.op!(scheme, crayon"bold 89ddff")  # Cyan
-  SyntaxHighlighter.keyword!(scheme, crayon"bold bb9af7")  # Purple
-  SyntaxHighlighter.macro!(scheme, crayon"f7768e")  # Red
-  SyntaxHighlighter.function_def!(scheme, crayon"italics 7aa2f7")  # Blue
-  SyntaxHighlighter.text!(scheme, crayon"c0caf5")  # Foreground
-  SyntaxHighlighter.error!(scheme, crayon"f7768e")  # Red
-  SyntaxHighlighter.argdef!(scheme, crayon"e0af68")  # Yellow
-  scheme
+const _JULIA_COLORSCHEMES = Dict(
+  "Tokyonight" => Dict(
+    :julia_symbol => "bb9af7",
+    :julia_comment => "565f89",
+    :julia_number => "ff9e64",
+    :julia_string => "9ece6a",
+    :julia_funcall => "7aa2f7",
+    :julia_operator => "89ddff",
+    :julia_keyword => "bb9af7",
+    :julia_macro => "f7768e",
+    :julia_funcdef => "7aa2f7",
+    :julia_error => "f7768e",
+    :julia_type => "e0af68",
+  ),
+  "CatppuccinLatte" => Dict(
+    :julia_symbol => "8839ef",
+    :julia_comment => "7c7f93",
+    :julia_string => "40a02b",
+    :julia_funcall => "1e66f5",
+    :julia_operator => "04a5e5",
+    :julia_keyword => "8839ef",
+    :julia_macro => "d20f39",
+    :julia_funcdef => "1e66f5",
+    :julia_error => "d20f39",
+    :julia_type => "df8e1d",
+    :julia_number => "fe640b",
+  ),
+  "CatppuccinFrappe" => Dict(
+    :julia_symbol => "ca9ee6",
+    :julia_comment => "949cbb",
+    :julia_string => "a6d189",
+    :julia_funcall => "8caaee",
+    :julia_operator => "99d1db",
+    :julia_keyword => "ca9ee6",
+    :julia_macro => "e78284",
+    :julia_funcdef => "8caaee",
+    :julia_error => "e78284",
+    :julia_type => "e5c890",
+    :julia_number => "ef9f76",
+  ),
+  "CatppuccinMacchiato" => Dict(
+    :julia_symbol => "c6a0f6",
+    :julia_comment => "939ab7",
+    :julia_string => "a6da95",
+    :julia_funcall => "8aadf4",
+    :julia_operator => "91d7e3",
+    :julia_keyword => "c6a0f6",
+    :julia_macro => "ed8796",
+    :julia_funcdef => "8aadf4",
+    :julia_error => "ed8796",
+    :julia_type => "eed49f",
+    :julia_number => "f5a97f",
+  ),
+  "CatppuccinMocha" => Dict(
+    :julia_symbol => "cba6f7",
+    :julia_comment => "9399b2",
+    :julia_string => "a6e3a1",
+    :julia_funcall => "89b4fa",
+    :julia_operator => "89dceb",
+    :julia_keyword => "cba6f7",
+    :julia_macro => "f38ba8",
+    :julia_funcdef => "89b4fa",
+    :julia_error => "f38ba8",
+    :julia_type => "f9e2af",
+    :julia_number => "fab387",
+  )
+)
+
+function colorscheme!(name::String)
+  scheme = get(_JULIA_COLORSCHEMES, name, nothing)
+  isnothing(scheme) && throw(ArgumentError("Unknown color scheme: $name"))
+
+  for (face, color) in scheme
+    loadface!(face => Face(foreground=parse(UInt32, color; base=16)))
+  end
+
+  if name == "Tokyonight"
+    loadface!(:julia_operator => Face(weight=:bold))
+    loadface!(:julia_keyword => Face(weight=:bold))
+    loadface!(:julia_funcdef => Face(slant=:italic))
+  else
+    loadface!(:julia_operator => Face(weight=:normal))
+    loadface!(:julia_keyword => Face(weight=:normal))
+    loadface!(:julia_funcdef => Face(slant=:normal))
+  end
+
+  return nothing
 end
-
-SyntaxHighlighter.add!("Tokyonight", _create_tokyonight_colorscheme())
-
-function _create_catppuccin_latte_colorscheme()
-  scheme = SyntaxHighlighter.ColorScheme()
-  SyntaxHighlighter.symbol!(scheme, crayon"8839ef")  # Mauve
-  SyntaxHighlighter.comment!(scheme, crayon"7c7f93")  # Overlay1
-  SyntaxHighlighter.string!(scheme, crayon"40a02b")  # Green
-  SyntaxHighlighter.call!(scheme, crayon"1e66f5")  # Blue
-  SyntaxHighlighter.op!(scheme, crayon"04a5e5")  # Sky
-  SyntaxHighlighter.keyword!(scheme, crayon"8839ef")  # Mauve
-  SyntaxHighlighter.macro!(scheme, crayon"d20f39")  # Red
-  SyntaxHighlighter.function_def!(scheme, crayon"1e66f5")  # Blue
-  SyntaxHighlighter.text!(scheme, crayon"4c4f69")  # Text
-  SyntaxHighlighter.error!(scheme, crayon"d20f39")  # Red
-  SyntaxHighlighter.argdef!(scheme, crayon"df8e1d")  # Yellow
-  SyntaxHighlighter.number!(scheme, crayon"fe640b")  # Peach
-  scheme
-end
-
-SyntaxHighlighter.add!("CatppuccinLatte", _create_catppuccin_latte_colorscheme())
-
-function _create_catppuccin_frappe_colorscheme()
-  scheme = SyntaxHighlighter.ColorScheme()
-  SyntaxHighlighter.symbol!(scheme, crayon"ca9ee6")  # Mauve
-  SyntaxHighlighter.comment!(scheme, crayon"949cbb")  # Overlay1
-  SyntaxHighlighter.string!(scheme, crayon"a6d189")  # Green
-  SyntaxHighlighter.call!(scheme, crayon"8caaee")  # Blue
-  SyntaxHighlighter.op!(scheme, crayon"99d1db")  # Sky
-  SyntaxHighlighter.keyword!(scheme, crayon"ca9ee6")  # Mauve
-  SyntaxHighlighter.macro!(scheme, crayon"e78284")  # Red
-  SyntaxHighlighter.function_def!(scheme, crayon"8caaee")  # Blue
-  SyntaxHighlighter.text!(scheme, crayon"c6d0f5")  # Text
-  SyntaxHighlighter.error!(scheme, crayon"e78284")  # Red
-  SyntaxHighlighter.argdef!(scheme, crayon"e5c890")  # Yellow
-  SyntaxHighlighter.number!(scheme, crayon"ef9f76")  # Peach
-  scheme
-end
-
-SyntaxHighlighter.add!("CatppuccinFrappe", _create_catppuccin_frappe_colorscheme())
-
-function _create_catppuccin_macchiato_colorscheme()
-  scheme = SyntaxHighlighter.ColorScheme()
-  SyntaxHighlighter.symbol!(scheme, crayon"c6a0f6")  # Mauve
-  SyntaxHighlighter.comment!(scheme, crayon"939ab7")  # Overlay1
-  SyntaxHighlighter.string!(scheme, crayon"a6da95")  # Green
-  SyntaxHighlighter.call!(scheme, crayon"8aadf4")  # Blue
-  SyntaxHighlighter.op!(scheme, crayon"91d7e3")  # Sky
-  SyntaxHighlighter.keyword!(scheme, crayon"c6a0f6")  # Mauve
-  SyntaxHighlighter.macro!(scheme, crayon"ed8796")  # Red
-  SyntaxHighlighter.function_def!(scheme, crayon"8aadf4")  # Blue
-  SyntaxHighlighter.text!(scheme, crayon"cad3f5")  # Text
-  SyntaxHighlighter.error!(scheme, crayon"ed8796")  # Red
-  SyntaxHighlighter.argdef!(scheme, crayon"eed49f")  # Yellow
-  SyntaxHighlighter.number!(scheme, crayon"f5a97f")  # Peach
-  scheme
-end
-
-SyntaxHighlighter.add!("CatppuccinMacchiato", _create_catppuccin_macchiato_colorscheme())
-
-function _create_catppuccin_mocha_colorscheme()
-  scheme = SyntaxHighlighter.ColorScheme()
-  SyntaxHighlighter.symbol!(scheme, crayon"cba6f7")  # Mauve
-  SyntaxHighlighter.comment!(scheme, crayon"9399b2")  # Overlay1
-  SyntaxHighlighter.string!(scheme, crayon"a6e3a1")  # Green
-  SyntaxHighlighter.call!(scheme, crayon"89b4fa")  # Blue
-  SyntaxHighlighter.op!(scheme, crayon"89dceb")  # Sky
-  SyntaxHighlighter.keyword!(scheme, crayon"cba6f7")  # Mauve
-  SyntaxHighlighter.macro!(scheme, crayon"f38ba8")  # Red
-  SyntaxHighlighter.function_def!(scheme, crayon"89b4fa")  # Blue
-  SyntaxHighlighter.text!(scheme, crayon"cdd6f4")  # Text
-  SyntaxHighlighter.error!(scheme, crayon"f38ba8")  # Red
-  SyntaxHighlighter.argdef!(scheme, crayon"f9e2af")  # Yellow
-  SyntaxHighlighter.number!(scheme, crayon"fab387")  # Peach
-  scheme
-end
-
-SyntaxHighlighter.add!("CatppuccinMocha", _create_catppuccin_mocha_colorscheme())
